@@ -1,6 +1,7 @@
-FROM nixos/nix
-
-RUN nix-env -iA nixpkgs.emacs26-nox
+FROM silex/emacs
 
 ADD .emacs.d /root/.emacs.d
 RUN emacs -batch -l ~/.emacs.d/init.el
+
+WORKDIR /root/
+CMD "bash"
