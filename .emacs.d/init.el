@@ -8,4 +8,9 @@
 (unless package-archive-contents
   (package-refresh-contents))
 
-(mapc 'package-install '(use-package))
+(mapc 'package-install '(use-package ledger-mode flycheck-ledger))
+
+(eval-after-load 'flycheck
+  '(require 'flycheck-ledger))
+
+(global-flycheck-mode)
